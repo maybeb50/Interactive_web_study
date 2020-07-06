@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .content {
+            height: 1000vh;
+            padding: 20%;
+            background-color: #009688;
+        }
+        
+        .output {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            line-height: 1.4;
+            font-size: 2rem;
+            font-weight: 200;
+            color: #fff;
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        .ilbuni {
+            width: 100px;
+            margin: 20px auto;
+            transition: 1s;
+        }
+
+        .ilbuni.zoom {
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div class="output">output</div>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, soluta!</p>
+        <figure class="ilbuni">
+            <img src="images/ilbuni_0.png" alt="ilbuni">
+        </figure>
+    </div>
+    <script>
+        (function() {
+            const outputElem = document.querySelector('.output');
+            const ilbuniElem = document.querySelector('.ilbuni');
+
+            function showValue() {
+                // outputElem.innerHTML = window.pageYOffset;
+                // outputElem.innerHTML = ilbuniElem.offsetTop;
+                let posY = ilbuniElem.getBoundingClientRect().top;
+                outputElem.innerHTML = posY;
+
+                if(posY < window.innerHeight * 0.2) {
+                    ilbuniElem.classList.add('zoom');
+                } else {
+                    ilbuniElem.classList.remove('zoom');
+                }
+
+                // console.log( posY );
+                //console.log( window.innerHeight * 0.2);
+            };
+
+            window.addEventListener('scroll', function() {
+                showValue();
+            });
+
+            showValue();
+        })();
+    </script>
+</body>
+</html>

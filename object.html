@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <style>
+        .card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 150px;
+            margin: 1rem;
+            border: 2px solid #000;
+            border-radius: 10px;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // const cats = {
+        //     name: 'bam',
+        //     age: 3,
+        //     introduce: function() {
+        //         console.log(this.name + this.age);
+        //     }
+        // };
+
+        // cats.introduce();
+
+        // 생성자 (Constructor) : 생성자 객체는 첫 문자를 대문자로 작성한다.  
+        function Card(num, color) {
+            this.num = num;
+            this.color = color;
+            this.init();
+        }
+
+        Card.prototype = {
+            constructor:  Card,
+            init: function() {
+                const mainElem = document.createElement('div');
+                mainElem.style.color = this.color;
+                mainElem.innerHTML = this.num;
+                mainElem.classList.add('card');
+                document.body.appendChild(mainElem);
+            }
+        }
+
+        // 인스턴스 
+        const card1 = new Card(6, 'blue');
+        const card2 = new Card(2, 'green');
+    </script>
+</body>
+</html>

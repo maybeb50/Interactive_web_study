@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Event</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes ball-ani {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(300px, 300px);
+            }
+        }
+
+        .ball {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: red;
+            /* animation: ball-ani 1s 3 alternate forwards; */
+        }
+
+        .blue {
+            border:5px solid dodgerblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+    <script>
+        const ballElem = document.querySelector('.ball');
+
+        window.addEventListener('click', function(e) {
+            ballElem.style.animation = 'ball-ani 1s 4 alternate forwards';
+        });
+
+        // ballElem.addEventListener('transitionstart', function() {
+        //     ballElem.classList.add('blue');
+        // });
+
+        ballElem.addEventListener('animationend', function(e) {
+            ballElem.classList.add('blue');
+            console.log(e.elapsedTime);
+            console.log(e);
+        });
+
+        ballElem.addEventListener('animationiteration', function(e) {
+            console.log('반복!');
+        });
+
+        // animationstart
+        // animationend
+        // animationiteration : 반복 된 횟수, 처음에는 로그에 찍히지 않고 반복이 시작된 시점부터 찍힌다. 
+
+    </script>
+</body>
+</html>

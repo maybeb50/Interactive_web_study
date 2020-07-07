@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout, setInterval, requestAnimationFrame</title>
+    <style>
+        .btn {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="btn">취소</button>
+    <script>
+        const btn = document.querySelector('.btn');
+        let timeId;
+
+
+        // function sample() {
+        //     console.log('sample!');
+        // }
+
+        // // timeId = setTimeout(sample, 1000);
+        // timeId = setInterval(sample, 1000);
+
+        // btn.addEventListener('click', function() {
+        //     clearTimeout(timeId);
+        // });
+
+        // 2. requestAnimationFrame 사용한 방법 
+
+        function sample() {
+            console.log('sample!');
+            timeId = requestAnimationFrame(sample);
+        }
+
+        sample();
+
+        btn.addEventListener('click', function() {
+            cancelAnimationFrame(timeId);
+        });
+
+    </script>
+</body>
+</html>

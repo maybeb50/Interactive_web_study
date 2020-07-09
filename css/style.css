@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 500vw;
+    /* min-height: 100%; */
+    font-family: 'Apple SD Gothic Neo', 'Roboto', 'Noto Sans KR', 'NanumGothic', 'Malgun Gothic', sans-serif;
+    -webkit-overflow-scrolling: touch;
+    color: #555;
+    background-color: #ffeb3b;
+}
+
+.world {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    perspective: 1000px;
+}
+
+.stage {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+}
+
+.house {
+    width: 100vw;
+    height: 100vh;
+    transform: translateZ(-490vw);
+    transform-style: preserve-3d;
+}
+
+.wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, .8);
+}
+
+.wall__side {
+    width: 1000vw;
+    text-align: center;
+    font-size: 5rem;
+    color: #555;
+    background-color: #f3f3f3;
+}
+
+.wall__left {
+    transform: rotateY(90deg) translateZ(-500vw);
+}
+
+.wall__right {
+    transform: rotateY(90deg) translateZ(-400vw);
+} 
+
+.wall__front--a { transform: translateZ(300vw); }
+.wall__front--b { transform: translateZ(50vw); }
+.wall__front--c { transform: translateZ(-200vw); }
+.wall__front--d { transform: translateZ(-500vw); }
+
+.wall__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.wall__title {
+    font-size: 5rem;
+}

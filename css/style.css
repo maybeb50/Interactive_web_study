@@ -32,7 +32,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    transform-style: preserve-3d;
+    transform-style: preserve-3d;   /* Not support IE */
 }
 
 .house {
@@ -67,10 +67,10 @@ body {
     transform: rotateY(90deg) translateZ(-400vw);
 } 
 
-.wall__front--a { transform: translateZ(300vw); }
-.wall__front--b { transform: translateZ(50vw); }
-.wall__front--c { transform: translateZ(-200vw); }
-.wall__front--d { transform: translateZ(-500vw); }
+.wall__front-a { transform: translateZ(300vw); }
+.wall__front-b { transform: translateZ(50vw); }
+.wall__front-c { transform: translateZ(-200vw); }
+.wall__front-d { transform: translateZ(-500vw); }
 
 .wall__content {
     display: flex;
@@ -81,4 +81,24 @@ body {
 
 .wall__title {
     font-size: 5rem;
+}
+
+.progress__bar-container {
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 5px;
+    background-color: #000;
+}
+
+.progress__bar {
+    z-index: 60;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: red;
 }

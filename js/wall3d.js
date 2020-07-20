@@ -24,9 +24,16 @@
 
         stageElem.style.transform = 'rotateX('+ (mousePos.y * 8) +'deg) rotateY('+ (mousePos.x * 8) +'deg)';
 
-        console.log(mousePos.x * 5, mousePos.y* 5)
+        // console.log(mousePos.x * 5, mousePos.y* 5)
+    });
+
+    stageElem.addEventListener('click', function (e) {
+        new Character({
+            xPos: e.clientX / window.innerWidth * 100
+        });
     });
 
     window.addEventListener('resize', resizeHandler);
     resizeHandler();
+
 })();
